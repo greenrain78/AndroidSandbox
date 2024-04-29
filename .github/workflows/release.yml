@@ -21,7 +21,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-
       # APK 빌드
       - name: Build Release APK
         run: bash ./gradlew assembleRelease
