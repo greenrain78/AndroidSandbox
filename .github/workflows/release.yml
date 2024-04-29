@@ -1,9 +1,9 @@
 name: Release APK
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "master", "release" ]
   pull_request:
-    branches: [ "release" ]
+    branches: [ "master", "release" ]
   workflow_dispatch:
 jobs:
   test:
