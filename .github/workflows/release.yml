@@ -23,14 +23,14 @@ jobs:
           java-version: 17
 
       # APK 빌드
-      - name: Build debug APK
+      - name: Build Release APK
         run: bash ./gradlew assembleRelease
       # APK 업로드
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
           name: app
-          path: app/build/outputs/apk/release/app-release*.apk
+          path: app/build/outputs/apk/release/app-release-unsigned.apk
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
@@ -42,4 +42,4 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-          artifacts: app/build/outputs/apk/release/app-release*.apk
+          artifacts: app/build/outputs/apk/release/app-release-unsigned.apk
