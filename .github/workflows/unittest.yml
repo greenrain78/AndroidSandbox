@@ -21,3 +21,7 @@ jobs:
       # 유닛 테스트 실행
       - name: Unit tests
         run: bash ./gradlew test --stacktrace
+      # 안드로이드 유니테스트 실행
+      - name: Android Test Report
+        uses: asadmansr/android-test-report-action@v1.2.0
+        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
