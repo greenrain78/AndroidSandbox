@@ -31,11 +31,13 @@ jobs:
         with:
           name: app
           path: app/build/outputs/apk/release/app-release-unsigned.apk
+      # 버전 업데이트
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      # GitHub 릴리즈 생성
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
