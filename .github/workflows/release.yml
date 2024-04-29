@@ -24,12 +24,6 @@ jobs:
       # APK 빌드
       - name: Build Release APK
         run: bash ./gradlew assembleRelease
-      # APK 업로드
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
       # 버전 및 태그 생성
       - name: Bump version and push tag
         id: tag_version
