@@ -23,7 +23,7 @@ jobs:
           java-version: 17
       # APK 빌드
       - name: Build Release APK
-        run: bash ./gradlew assembleRelease
+        run: bash ./gradlew assembleDebug
       # 버전 및 태그 생성
       - name: Bump version and push tag
         id: tag_version
@@ -37,4 +37,4 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-          artifacts: app/build/outputs/apk/release/app-release-unsigned.apk
+          artifacts: app/build/outputs/apk/debug/app-debug.apk
